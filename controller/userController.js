@@ -35,4 +35,4 @@ const postRegister = async(req, res)=>{
     }
 }
 
-module.exports ={getHomepage, getRegister, getLogin}
+module.exports ={getHomepage, getRegister, getLogin, getPostAds}
