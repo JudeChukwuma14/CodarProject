@@ -6,9 +6,11 @@ require("dotenv").config()
 const routerLink = require("./route/allRouter")
 const mongoose = require("mongoose");
 
-
-
-
+mongoose.connect(process.env.Mongoose_Url).then(()=>{
+  console.log("DB connection established")
+}).catch((err)=>{
+  console.log(err.message)
+})
 const app = express();
 app.engine(
   "hbs",
@@ -21,8 +23,8 @@ app.engine(
     },
   })
 );
-app.set("view engine", "hbs");
-app.set();
+app.set('view engine', 'hbs');
+
 app.use(cookies());
 app.use(expressFileUpload());
 app.use(express.static("public"));
