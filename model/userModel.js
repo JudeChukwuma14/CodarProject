@@ -16,6 +16,12 @@ const userInput = new mongoose.Schema({
         type: String,
         required: true
     },
+    otp:{
+        type: Number
+    },
+    otpExpireDate:{
+        type: Date
+    },
     creatAt:{
         type: Date,
         default: Date.now()

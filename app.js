@@ -5,6 +5,7 @@ const expressFileUpload = require("express-fileupload");
 require("dotenv").config()
 const routerLink = require("./route/allRouter")
 const mongoose = require("mongoose");
+const { checkLoggedUser } = require("./middleware/TokenVaildation");
 
 mongoose.connect(process.env.Mongoose_Url).then(()=>{
   console.log("DB connection established")
@@ -31,6 +32,8 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/", routerLink)
+
+app.get("*", checkLoggedUser)
 const port = process.env.Port_Number;
 app.listen(port, () => {
   console.log(`Server is listening to port ${port}`);
