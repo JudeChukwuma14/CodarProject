@@ -83,6 +83,14 @@ const postLogin = async (req, res) => {
   }
 };
 
+const postProduct = async(req, res)=>{
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
 module.exports = {
   getHomepage,
   getRegister,
